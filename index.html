@@ -10,8 +10,20 @@
 
 <body>
 
-<!-- INTRO -->
+<!-- INTRO (UNCHANGED) -->
 <div id="intro">
+
+  <div class="intro-hearts">
+    <span class="i-heart small">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart large">♡</span>
+    <span class="i-heart small">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart large">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart small">♡</span>
+  </div>
+
   <h1>🎂❤️ HAPPY BIRTHDAY KUKI "RESHMI" ❤️🎂</h1>
   <button onclick="enterSite()">TAP TO ENTER</button>
 </div>
@@ -19,32 +31,31 @@
 <!-- MAIN CONTENT -->
 <div id="mainContent" class="hidden">
 
-  <!-- FLOATING HEARTS -->
-  <div class="hearts">
-    <div class="heart small" style="left:10%">❤️</div>
-    <div class="heart medium" style="left:25%">❤️</div>
-    <div class="heart large" style="left:40%">❤️</div>
-    <div class="heart small" style="left:60%">❤️</div>
-    <div class="heart medium" style="left:75%">❤️</div>
-    <div class="heart large" style="left:85%">❤️</div>
-  </div>
-
   <div class="page">
 
-    <!-- LEFT SIDE -->
+    <!-- LEFT -->
     <div class="left">
       <h2 class="birthday-title">HAPPY BIRTHDAY KUKI ❤️</h2>
 
       <div class="photo-box">
-        <button class="nav" onclick="prevSlide()">❮</button>
+
+        <!-- HEARTS INSIDE SLIDESHOW -->
+        <div class="slide-hearts">
+          <span class="slide-heart"></span>
+          <span class="slide-heart"></span>
+          <span class="slide-heart"></span>
+          <span class="slide-heart"></span>
+          <span class="slide-heart"></span>
+          <span class="slide-heart"></span>
+        </div>
+
         <img id="slideImage" src="img1.jpg">
-        <button class="nav" onclick="nextSlide()">❯</button>
       </div>
 
       <p id="quote"></p>
     </div>
 
-    <!-- RIGHT SIDE -->
+    <!-- RIGHT -->
     <div class="right">
       <div id="surpriseBox" class="surprise-box hidden">
         <img id="surpriseImage">
