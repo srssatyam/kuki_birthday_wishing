@@ -10,7 +10,7 @@
 
 <body>
 
-<!-- INTRO (UNCHANGED) -->
+<!-- INTRO SCREEN -->
 <div id="intro">
 
   <div class="intro-hearts">
@@ -26,6 +26,7 @@
 
   <h1>🎂❤️ HAPPY BIRTHDAY KUKI "RESHMI" ❤️🎂</h1>
   <button onclick="enterSite()">TAP TO ENTER</button>
+
 </div>
 
 <!-- MAIN CONTENT -->
@@ -33,29 +34,15 @@
 
   <div class="page">
 
-    <!-- LEFT -->
     <div class="left">
-      <h2 class="birthday-title">HAPPY BIRTHDAY KUKI ❤️</h2>
-
       <div class="photo-box">
-
-        <!-- HEARTS INSIDE SLIDESHOW -->
-        <div class="slide-hearts">
-          <span class="slide-heart"></span>
-          <span class="slide-heart"></span>
-          <span class="slide-heart"></span>
-          <span class="slide-heart"></span>
-          <span class="slide-heart"></span>
-          <span class="slide-heart"></span>
-        </div>
-
         <img id="slideImage" src="img1.jpg">
       </div>
-
-      <p id="quote"></p>
+      <div class="quote-box">
+        <p id="quote"></p>
+      </div>
     </div>
 
-    <!-- RIGHT -->
     <div class="right">
       <div id="surpriseBox" class="surprise-box hidden">
         <img id="surpriseImage">
@@ -66,7 +53,6 @@
 
   </div>
 
-  <!-- BUTTONS -->
   <button id="btn1" class="action-btn first-btn" onclick="showFirst()">SURPRISE</button>
   <button id="btn2" class="action-btn second-btn hidden" onclick="showSecond()">SURPRISE</button>
 
