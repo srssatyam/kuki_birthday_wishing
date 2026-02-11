@@ -32,7 +32,6 @@
 <!-- MAIN CONTENT -->
 <div id="mainContent" class="hidden">
 
-  <!-- RED FLOATING HEARTS -->
   <div class="hearts">
     <div class="heart small">❤️</div>
     <div class="heart">❤️</div>
@@ -42,13 +41,17 @@
     <div class="heart large">❤️</div>
   </div>
 
-  <h2 class="main-title">HAPPY BIRTHDAY KUKI</h2>
-
   <div class="page">
 
     <div class="left">
-      <img id="slideImage" src="img1.jpg">
-      <p id="quote"></p>
+      <div class="photo-box">
+        <button class="nav" onclick="prevSlide()">❮</button>
+        <img id="slideImage" src="img1.jpg">
+        <button class="nav" onclick="nextSlide()">❯</button>
+      </div>
+      <div class="quote-box">
+        <p id="quote"></p>
+      </div>
     </div>
 
     <div class="right">
