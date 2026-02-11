@@ -4,19 +4,16 @@
   padding: 0;
 }
 
-/* BODY (keeps intro black background behind everything) */
 body {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
-  background: black;
+  color: white;
+  background: radial-gradient(circle at center, #111, #000);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* ========================= */
-/* INTRO WINDOW */
-/* ========================= */
-
+/* INTRO */
 #intro {
   position: fixed;
   width: 100%;
@@ -26,14 +23,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   overflow: hidden;
+  text-align: center;
   z-index: 999;
 }
 
 #intro h1 {
   font-size: 28px;
-  color: white;
   margin-bottom: 20px;
 }
 
@@ -47,7 +43,7 @@ body {
   cursor: pointer;
 }
 
-/* Intro floating ♡ */
+/* ♡ ANIMATION */
 .intro-hearts {
   position: absolute;
   width: 100%;
@@ -84,61 +80,16 @@ body {
   display: none;
 }
 
-/* ========================= */
-/* MAIN WINDOW */
-/* ========================= */
-
-#mainContent {
-  position: relative;
-  background: white;   /* MAIN BACKGROUND WHITE */
-  min-height: 100vh;
-  color: black;        /* text visible on white */
-}
-
-/* Floating red hearts container */
-.floating-hearts {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Each red heart */
-.floating-heart {
-  position: absolute;
-  bottom: -50px;
-  color: red;
-  animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
-}
-
-/* Keep content above floating hearts */
-#mainContent > *:not(.floating-hearts) {
-  position: relative;
-  z-index: 1;
-}
-
-/* Title */
+/* MAIN TITLE */
 .main-title {
   text-align: center;
   margin-top: 30px;
   font-size: 32px;
   letter-spacing: 3px;
-  text-shadow: 0 0 5px rgba(0,0,0,0.2);
+  text-shadow: 0 0 10px white, 0 0 20px white;
 }
 
-/* Layout */
+/* PAGE */
 .page {
   display: flex;
   justify-content: center;
@@ -146,22 +97,22 @@ body {
   padding: 40px;
 }
 
-.left,
-.right {
+.left, .right {
   width: 320px;
   text-align: center;
 }
 
-/* Images */
 #slideImage,
 .surprise-box img {
   width: 240px;
   height: 320px;
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  border-radius: 0;
+  box-shadow: 0 0 25px rgba(255,255,255,0.7),
+              0 0 50px rgba(255,255,255,0.5);
 }
 
-/* Buttons */
+/* BUTTONS */
 .action-btn {
   position: absolute;
   right: 40px;
@@ -177,26 +128,22 @@ body {
 .second-btn { bottom: 90px; }
 .third-btn { bottom: 40px; }
 
-/* Music button */
+/* MUSIC BUTTON */
 #musicBtn {
   position: fixed;
   left: 20px;
   bottom: 20px;
   padding: 10px 20px;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   border-radius: 25px;
   border: none;
   cursor: pointer;
   font-weight: bold;
 }
 
-/* ========================= */
 /* MOBILE */
-/* ========================= */
-
 @media (max-width: 768px) {
-
   .page {
     flex-direction: column;
     align-items: center;
