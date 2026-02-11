@@ -2,10 +2,7 @@ function enterSite() {
   document.getElementById("intro").style.display = "none";
   document.getElementById("mainContent").classList.remove("hidden");
 
-  confetti({
-    particleCount: 200,
-    spread: 120
-  });
+  confetti({ particleCount: 200, spread: 120 });
 
   let music = document.getElementById("bgMusic");
   music.play();
@@ -25,7 +22,7 @@ function toggleMusic() {
   }
 }
 
-/* SLIDESHOW */
+/* SLIDESHOW AUTO */
 let images = ["img1.jpg","img2.jpg","img3.jpg"];
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
@@ -40,17 +37,11 @@ function updateSlide() {
   document.getElementById("quote").innerText = quotes[index];
 }
 
-function nextSlide() {
+setInterval(() => {
   index = (index + 1) % images.length;
   updateSlide();
-}
+}, 4000);
 
-function prevSlide() {
-  index = (index - 1 + images.length) % images.length;
-  updateSlide();
-}
-
-setInterval(nextSlide, 4000);
 updateSlide();
 
 /* SURPRISE */
