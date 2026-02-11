@@ -1,5 +1,4 @@
 function enterSite() {
-
   const duration = 1500;
   const end = Date.now() + duration;
 
@@ -40,7 +39,7 @@ function enterSite() {
   }, 1000);
 }
 
-/* MUSIC TOGGLE */
+/* MUSIC */
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
   let btn = document.getElementById("musicBtn");
@@ -55,15 +54,7 @@ function toggleMusic() {
 }
 
 /* SLIDESHOW */
-let images = [
-  "img1.jpg",
-  "img2.jpg",
-  "img3.jpg",
-  "img4.jpg",
-  "img5.jpg",
-  "img6.jpg"
-];
-
+let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
@@ -87,15 +78,10 @@ function nextSlide() {
   updateSlide();
 }
 
-function prevSlide() {
-  index = (index - 1 + images.length) % images.length;
-  updateSlide();
-}
-
 setInterval(nextSlide, 4000);
 updateSlide();
 
-/* SURPRISE */
+/* SURPRISE LOGIC */
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
 let surpriseQuote = document.getElementById("surpriseQuote");
@@ -115,6 +101,7 @@ let letterText =
   "FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
 
 let currentSurprise = 1;
+let unlockedSecond = false;
 
 function typeWriter(text) {
   loveLetter.innerText = "";
@@ -146,7 +133,7 @@ function showFirst() {
   btn1.classList.add("hidden");
   btn2.classList.remove("hidden");
 
-  confetti({ particleCount: 200, spread: 120 });
+  currentSurprise = 1;
 }
 
 function showSecond() {
@@ -155,10 +142,13 @@ function showSecond() {
   btn2.classList.add("hidden");
   btn3.classList.remove("hidden");
 
-  confetti({ particleCount: 300, spread: 150 });
+  currentSurprise = 2;
+  unlockedSecond = true;
 }
 
 function showPrevious() {
+  if (!unlockedSecond) return;
+
   if (currentSurprise === 1) {
     fadeImage(surprise2Image, surprise2Text);
     currentSurprise = 2;
