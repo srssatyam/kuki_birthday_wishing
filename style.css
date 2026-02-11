@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* INTRO (UNCHANGED) */
+/* INTRO */
 #intro {
   position: fixed;
   width: 100%;
@@ -43,7 +43,7 @@ body {
   cursor: pointer;
 }
 
-/* INTRO RED PULSE HEARTS */
+/* INTRO HEART PULSE */
 .intro-hearts {
   position: absolute;
   width: 100%;
@@ -67,30 +67,7 @@ body {
   100% { transform: scale(1); opacity: 0.6; }
 }
 
-/* RANDOM BLUE HEART BACKGROUND */
-#randomBlueHearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.random-blue {
-  position: absolute;
-  color: #00bfff;
-  opacity: 0.35;
-  animation: softMove 8s ease-in-out infinite alternate;
-}
-
-@keyframes softMove {
-  from { transform: translateY(0px); }
-  to { transform: translateY(-15px); }
-}
-
-/* RED FLOATING HEARTS (UNCHANGED) */
+/* RED FLOATING HEARTS */
 .hearts {
   position: fixed;
   width: 100%;
