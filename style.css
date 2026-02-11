@@ -8,7 +8,10 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   color: white;
-  background-color: black;
+
+  /* PREMIUM BLACK BACKGROUND */
+  background: radial-gradient(circle at center, #111, #000);
+
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -28,7 +31,7 @@ body {
 }
 
 #intro h1 {
-  font-size: 32px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
@@ -42,13 +45,12 @@ body {
   cursor: pointer;
 }
 
-/* TOP TITLE */
+/* MAIN TITLE */
 .main-title {
   text-align: center;
   margin-top: 30px;
   font-size: 32px;
   letter-spacing: 3px;
-  color: white;
   text-shadow: 0 0 10px white, 0 0 20px white;
 }
 
@@ -56,7 +58,7 @@ body {
   display: none;
 }
 
-/* PAGE */
+/* PAGE LAYOUT */
 .page {
   display: flex;
   justify-content: center;
@@ -164,7 +166,7 @@ body {
   100% { transform: translateY(-120vh); opacity: 0; }
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 @media (max-width: 768px) {
   .page {
     flex-direction: column;
