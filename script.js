@@ -126,15 +126,15 @@ function fadeImage(newSrc, newText) {
     surpriseImage.style.opacity = 1;
   }, 300);
 }
-
 function showFirst() {
+
   surpriseBox.classList.remove("hidden");
+
   fadeImage(surprise1Image, surprise1Text);
   typeWriter(letterText);
 
-  btn1.style.display = "none";
-  btn2.style.display = "block";
-  btn3.style.display = "block";
+  btn1.classList.add("hidden");
+  btn2.classList.remove("hidden");
 
   currentSurprise = 1;
 
@@ -142,8 +142,14 @@ function showFirst() {
 }
 
 function showSecond() {
+
   fadeImage(surprise2Image, surprise2Text);
+
+  btn2.classList.add("hidden");
+  btn3.classList.remove("hidden");
+
   currentSurprise = 2;
+
   confetti({ particleCount: 300, spread: 150 });
 }
 
