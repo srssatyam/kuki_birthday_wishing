@@ -43,7 +43,7 @@ body {
   cursor: pointer;
 }
 
-/* ♡ ANIMATION */
+/* INTRO HEARTS */
 .intro-hearts {
   position: absolute;
   width: 100%;
@@ -60,15 +60,6 @@ body {
 
 .small { font-size: 20px; }
 .large { font-size: 80px; }
-
-.i-heart:nth-child(1) { left: 10%; top: 20%; }
-.i-heart:nth-child(2) { left: 30%; top: 50%; }
-.i-heart:nth-child(3) { left: 70%; top: 30%; }
-.i-heart:nth-child(4) { left: 80%; top: 70%; }
-.i-heart:nth-child(5) { left: 50%; top: 80%; }
-.i-heart:nth-child(6) { left: 20%; top: 70%; }
-.i-heart:nth-child(7) { left: 60%; top: 15%; }
-.i-heart:nth-child(8) { left: 40%; top: 40%; }
 
 @keyframes floatIntro {
   0% { transform: scale(1); opacity: 0.6; }
@@ -107,7 +98,6 @@ body {
   width: 240px;
   height: 320px;
   object-fit: cover;
-  border-radius: 0;
   box-shadow: 0 0 25px rgba(255,255,255,0.7),
               0 0 50px rgba(255,255,255,0.5);
 }
@@ -142,6 +132,30 @@ body {
   font-weight: bold;
 }
 
+/* ✅ FIXED FLOATING HEARTS (ONLY CHANGE HERE) */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-heart {
+  position: absolute;
+  bottom: -50px;
+  color: red;
+  animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .page {
@@ -162,74 +176,3 @@ body {
     display: block;
   }
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HAPPY BIRTHDAY ❤️</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-</head>
-
-<body>
-
-<!-- INTRO SCREEN -->
-<div id="intro">
-
-  <div class="intro-hearts">
-    <span class="i-heart small">♡</span>
-    <span class="i-heart">♡</span>
-    <span class="i-heart large">♡</span>
-    <span class="i-heart small">♡</span>
-    <span class="i-heart">♡</span>
-    <span class="i-heart large">♡</span>
-    <span class="i-heart">♡</span>
-    <span class="i-heart small">♡</span>
-  </div>
-
-  <h1>🎂❤️ HAPPY BIRTHDAY KUKI "RESHMI" ❤️🎂</h1>
-  <button onclick="enterSite()">TAP TO ENTER</button>
-
-</div>
-
-<!-- MAIN CONTENT -->
-<div id="mainContent" class="hidden">
-
-  <!-- FLOATING HEARTS ONLY FOR MAIN WINDOW -->
-  <div class="floating-hearts" id="floatingHearts"></div>
-
-  <h2 class="main-title">HAPPY BIRTHDAY KUKI</h2>
-
-  <div class="page">
-
-    <div class="left">
-      <img id="slideImage" src="img1.jpg">
-      <p id="quote"></p>
-    </div>
-
-    <div class="right">
-      <div id="surpriseBox" class="surprise-box hidden">
-        <img id="surpriseImage">
-        <p id="surpriseQuote"></p>
-        <p id="loveLetter"></p>
-      </div>
-    </div>
-
-  </div>
-
-  <button id="btn1" class="action-btn first-btn" onclick="showFirst()">SURPRISE</button>
-  <button id="btn2" class="action-btn second-btn hidden" onclick="showSecond()">SURPRISE</button>
-  <button id="btn3" class="action-btn third-btn hidden" onclick="showPrevious()">PREVIOUS</button>
-
-  <button id="musicBtn" onclick="toggleMusic()">🔊 MUSIC</button>
-
-  <audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
-
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
