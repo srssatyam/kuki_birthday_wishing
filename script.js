@@ -1,7 +1,3 @@
-/* ========================= */
-/* ENTER SITE + CONFETTI + MUSIC */
-/* ========================= */
-
 function enterSite() {
 
   const duration = 1500;
@@ -44,11 +40,6 @@ function enterSite() {
   }, 1000);
 }
 
-
-/* ========================= */
-/* MUSIC TOGGLE */
-/* ========================= */
-
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
   let btn = document.getElementById("musicBtn");
@@ -62,19 +53,7 @@ function toggleMusic() {
   }
 }
 
-
-/* ========================= */
-/* SLIDESHOW */
-/* ========================= */
-
-let images = [
-  "img1.jpg",
-  "img2.jpg",
-  "img3.jpg",
-  "img4.jpg",
-  "img5.jpg",
-  "img6.jpg"
-];
+let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
 
 let quotes = [
   "YOU ARE MY HAPPINESS 💖",
@@ -101,11 +80,6 @@ function nextSlide() {
 
 setInterval(nextSlide, 4000);
 updateSlide();
-
-
-/* ========================= */
-/* SURPRISE SYSTEM */
-/* ========================= */
 
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
@@ -182,34 +156,3 @@ function showPrevious() {
     currentSurprise = 1;
   }
 }
-
-
-/* ========================= */
-/* RANDOM BLUE ♡ BACKGROUND */
-/* ========================= */
-
-function generateBlueHearts() {
-  const container = document.getElementById("randomBlueHearts");
-
-  for (let i = 0; i < 30; i++) {
-    let heart = document.createElement("div");
-    heart.classList.add("random-blue");
-    heart.innerText = "♡";
-
-    // random size
-    let size = Math.random() * 50 + 15;
-    heart.style.fontSize = size + "px";
-
-    // random position
-    heart.style.left = Math.random() * 100 + "%";
-    heart.style.top = Math.random() * 100 + "%";
-
-    // random gentle movement speed
-    heart.style.animationDuration = (Math.random() * 5 + 6) + "s";
-
-    container.appendChild(heart);
-  }
-}
-
-// Generate blue hearts when page loads
-generateBlueHearts();
