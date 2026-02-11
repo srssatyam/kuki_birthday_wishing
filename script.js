@@ -5,7 +5,7 @@ function enterSite() {
 
   (function frame() {
     confetti({
-      particleCount: 60,
+      particleCount: 50,
       spread: 180,
       startVelocity: 60,
       gravity: 0.8,
@@ -40,6 +40,7 @@ function enterSite() {
   }, 1000);
 }
 
+/* MUSIC TOGGLE */
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
   let btn = document.getElementById("musicBtn");
@@ -53,15 +54,23 @@ function toggleMusic() {
   }
 }
 
-let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
+/* SLIDESHOW */
+let images = [
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg"
+];
 
 let quotes = [
-  "YOU ARE MY HAPPINESS 💖",
+  "YOU MAKE MY LIFE BEAUTIFUL ❤️",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
   "EVERY MOMENT WITH YOU IS SPECIAL ✨",
-  "YOU MAKE MY WORLD BEAUTIFUL ❤️",
-  "WITH YOU LIFE IS A BLESSING 💕",
-  "TODAY IS SPECIAL BECAUSE YOU WERE BORN 🎉"
+  "YOU ARE MY HAPPINESS 💖",
+  "WITH YOU LIFE IS A BLESSING 🎈",
+  "TODAY IS SPECIAL BECAUSE YOU WERE BORN ❤️"
 ];
 
 let index = 0;
@@ -78,9 +87,15 @@ function nextSlide() {
   updateSlide();
 }
 
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  updateSlide();
+}
+
 setInterval(nextSlide, 4000);
 updateSlide();
 
+/* SURPRISE */
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
 let surpriseQuote = document.getElementById("surpriseQuote");
@@ -97,14 +112,13 @@ let surprise1Text = "YOU ARE MY GREATEST GIFT ❤️";
 let surprise2Text = "MY LIFE IS COMPLETE WITH YOU ✨";
 
 let letterText =
-"FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
+  "FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
 
 let currentSurprise = 1;
 
 function typeWriter(text) {
   loveLetter.innerText = "";
   let i = 0;
-
   function typing() {
     if (i < text.length) {
       loveLetter.innerText += text.charAt(i);
@@ -112,13 +126,11 @@ function typeWriter(text) {
       setTimeout(typing, 40);
     }
   }
-
   typing();
 }
 
 function fadeImage(newSrc, newText) {
   surpriseImage.style.opacity = 0;
-
   setTimeout(() => {
     surpriseImage.src = newSrc;
     surpriseQuote.innerText = newText;
@@ -128,23 +140,22 @@ function fadeImage(newSrc, newText) {
 
 function showFirst() {
   surpriseBox.classList.remove("hidden");
-
   fadeImage(surprise1Image, surprise1Text);
   typeWriter(letterText);
 
-  btn1.style.display = "none";
-  btn2.style.display = "block";
+  btn1.classList.add("hidden");
+  btn2.classList.remove("hidden");
 
-  currentSurprise = 1;
+  confetti({ particleCount: 200, spread: 120 });
 }
 
 function showSecond() {
   fadeImage(surprise2Image, surprise2Text);
 
-  btn2.style.display = "none";
-  btn3.style.display = "block";
+  btn2.classList.add("hidden");
+  btn3.classList.remove("hidden");
 
-  currentSurprise = 2;
+  confetti({ particleCount: 300, spread: 150 });
 }
 
 function showPrevious() {
