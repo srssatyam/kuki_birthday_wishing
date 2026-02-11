@@ -1,7 +1,10 @@
+/* ========================= */
 /* ENTER SITE + MUSIC START */
+/* ========================= */
 
 function enterSite() {
 
+  // 💥 BIG RED CONFETTI BOOM
   const duration = 1500;
   const end = Date.now() + duration;
 
@@ -24,6 +27,7 @@ function enterSite() {
     }
   })();
 
+  // 🎵 MUSIC START WITH FADE
   let music = document.getElementById("bgMusic");
   music.volume = 0;
   music.play();
@@ -36,13 +40,17 @@ function enterSite() {
     }
   }, 200);
 
+  // SHOW MAIN CONTENT
   setTimeout(() => {
     document.getElementById("intro").style.display = "none";
     document.getElementById("mainContent").classList.remove("hidden");
   }, 1000);
 }
 
+
+/* ========================= */
 /* MUSIC TOGGLE */
+/* ========================= */
 
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
@@ -57,9 +65,20 @@ function toggleMusic() {
   }
 }
 
-/* SLIDESHOW */
 
-let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
+/* ========================= */
+/* SLIDESHOW */
+/* ========================= */
+
+let images = [
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg"
+];
+
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
@@ -83,10 +102,18 @@ function nextSlide() {
   updateSlide();
 }
 
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  updateSlide();
+}
+
 setInterval(nextSlide, 4000);
 updateSlide();
 
+
+/* ========================= */
 /* SURPRISE SECTION */
+/* ========================= */
 
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
@@ -108,9 +135,12 @@ let letterText =
 
 let currentSurprise = 1;
 
+
+/* TYPEWRITER EFFECT */
 function typeWriter(text) {
   loveLetter.innerText = "";
   let i = 0;
+
   function typing() {
     if (i < text.length) {
       loveLetter.innerText += text.charAt(i);
@@ -118,11 +148,15 @@ function typeWriter(text) {
       setTimeout(typing, 40);
     }
   }
+
   typing();
 }
 
+
+/* IMAGE FADE EFFECT */
 function fadeImage(newSrc, newText) {
   surpriseImage.style.opacity = 0;
+
   setTimeout(() => {
     surpriseImage.src = newSrc;
     surpriseQuote.innerText = newText;
@@ -130,27 +164,41 @@ function fadeImage(newSrc, newText) {
   }, 300);
 }
 
+
+/* FIRST SURPRISE */
 function showFirst() {
+
   surpriseBox.classList.remove("hidden");
+
   fadeImage(surprise1Image, surprise1Text);
   typeWriter(letterText);
 
   btn1.style.display = "none";
   btn2.style.display = "block";
-  btn3.style.display = "block";
 
   currentSurprise = 1;
 
   confetti({ particleCount: 200, spread: 120 });
 }
 
+
+/* SECOND SURPRISE */
 function showSecond() {
+
   fadeImage(surprise2Image, surprise2Text);
+
+  btn2.style.display = "none";
+  btn3.style.display = "block";
+
   currentSurprise = 2;
+
   confetti({ particleCount: 300, spread: 150 });
 }
 
+
+/* PREVIOUS TOGGLE */
 function showPrevious() {
+
   if (currentSurprise === 1) {
     fadeImage(surprise2Image, surprise2Text);
     currentSurprise = 2;
@@ -159,30 +207,3 @@ function showPrevious() {
     currentSurprise = 1;
   }
 }
-
-/* RANDOM FLOATING HEARTS (MAIN WINDOW ONLY) */
-
-function createHeart() {
-  const container = document.getElementById("floatingHearts");
-  if (!container) return;
-
-  const heart = document.createElement("div");
-  heart.classList.add("floating-heart");
-  heart.innerHTML = "❤️";
-
-  const size = Math.random() * 40 + 15;
-  heart.style.fontSize = size + "px";
-
-  heart.style.left = Math.random() * 100 + "%";
-
-  const duration = Math.random() * 5 + 5;
-  heart.style.animationDuration = duration + "s";
-
-  container.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, duration * 1000);
-}
-
-setInterval(createHeart, 500);
