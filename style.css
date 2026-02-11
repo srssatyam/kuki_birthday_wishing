@@ -8,10 +8,7 @@ body {
   font-family: "Times New Roman", Times, serif;
   font-weight: bold;
   color: white;
-  background: url("birthday-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: black;
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -45,7 +42,7 @@ body {
   background: red;
 }
 
-/* ♡ BACKGROUND */
+/* INTRO HEARTS */
 .intro-hearts {
   position: absolute;
   width: 100%;
@@ -90,25 +87,20 @@ body {
   padding: 40px;
 }
 
-/* LEFT */
 .left {
   width: 320px;
-
-  /* MOVE LEFT */
   position: relative;
-  left: -40px;   /* move left */
-
-  /* MOVE DOWN */
-  top: 40px;     /* move down */
+  left: -40px;
+  top: 40px;
 }
 
-.nav {
-  width: 36px;
-  height: 36px;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
+#slideImage {
+  width: 240px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: 0 0 25px rgba(255,255,255,0.7),
+              0 0 50px rgba(255,255,255,0.5);
 }
 
 #quote {
@@ -116,54 +108,29 @@ body {
   text-align: center;
 }
 
-/* RIGHT */
-.right { width: 320px; text-align: center; }
+.right {
+  width: 320px;
+  text-align: center;
+}
 
 .surprise-box {
   text-align: center;
-
-  /* MOVE RIGHT */
   position: relative;
-  left: 50px;   /* adjust if needed */
-
-  /* MOVE DOWN */
-  top: 40px;    /* adjust if needed */
-}
-
-#slideImage {
-  width: 240px;
-  height: 320px;
-  object-fit: cover;
-
-  /* RECTANGLE - NO ROUND CORNERS */
-  border-radius: 0;
-
-  box-shadow: 0 0 25px rgba(255,255,255,0.7),
-              0 0 50px rgba(255,255,255,0.5);
+  left: 50px;
+  top: 40px;
 }
 
 .surprise-box img {
   width: 260px;
-
-  /* RECTANGLE - NO ROUND CORNERS */
   border-radius: 0;
-
   box-shadow: 0 0 25px rgba(255,255,255,0.7),
               0 0 50px rgba(255,255,255,0.5);
-
   transition: opacity 0.5s ease;
 }
-
 
 #surpriseQuote {
   margin-top: 15px;
 }
-
-#loveLetter {
-  margin-top: 10px;
-  white-space: pre-wrap;
-}
-
 
 #loveLetter {
   margin-top: 15px;
@@ -213,7 +180,7 @@ body {
   10% { opacity: 1; }
   100% { transform: translateY(-120vh); opacity: 0; }
 }
-/* MUSIC BUTTON */
+
 #musicBtn {
   position: fixed;
   left: 20px;
@@ -225,56 +192,4 @@ body {
   border: none;
   cursor: pointer;
   font-weight: bold;
-}
-/* ========================= */
-/* MOBILE RESPONSIVE DESIGN */
-/* ========================= */
-
-@media (max-width: 768px) {
-
-  .page {
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding: 20px;
-  }
-
-  .left {
-    left: 0;
-    top: 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .right {
-    width: 100%;
-    text-align: center;
-  }
-
-  #slideImage {
-    width: 80%;
-    height: auto;
-  }
-
-  .surprise-box {
-    left: 0;
-    top: 0;
-  }
-
-  .surprise-box img {
-    width: 80%;
-    height: auto;
-  }
-
-  .action-btn {
-    position: static;
-    margin: 10px auto;
-    display: block;
-  }
-
-  #musicBtn {
-    left: 10px;
-    bottom: 10px;
-  }
-
 }
