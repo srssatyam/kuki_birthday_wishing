@@ -207,3 +207,28 @@ function showPrevious() {
     currentSurprise = 1;
   }
 }
+/* =========================
+   RANDOM BLUE HEARTS
+========================= */
+
+function generateBlueHearts() {
+
+  const container = document.querySelector(".blue-hearts");
+
+  for (let i = 0; i < 40; i++) {
+
+    let heart = document.createElement("span");
+    heart.innerText = "♡";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = Math.random() * 100 + "vh";
+
+    let size = Math.random() * 40 + 10;
+    heart.style.fontSize = size + "px";
+
+    container.appendChild(heart);
+  }
+}
+
+generateBlueHearts();
+
