@@ -43,7 +43,6 @@ function enterSite() {
 }
 
 /* MUSIC TOGGLE */
-
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
   let btn = document.getElementById("musicBtn");
@@ -58,7 +57,6 @@ function toggleMusic() {
 }
 
 /* SLIDESHOW */
-
 let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
@@ -87,7 +85,6 @@ setInterval(nextSlide, 4000);
 updateSlide();
 
 /* SURPRISE SECTION */
-
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
 let surpriseQuote = document.getElementById("surpriseQuote");
@@ -160,7 +157,7 @@ function showPrevious() {
   }
 }
 
-/* RANDOM FLOATING HEARTS (MAIN WINDOW ONLY) */
+/* ✅ FIXED FLOATING HEARTS */
 
 function createHeart() {
   const container = document.getElementById("floatingHearts");
@@ -173,7 +170,8 @@ function createHeart() {
   const size = Math.random() * 40 + 15;
   heart.style.fontSize = size + "px";
 
-  heart.style.left = Math.random() * 100 + "%";
+  // FIX FOR MOBILE
+  heart.style.left = Math.random() * window.innerWidth + "px";
 
   const duration = Math.random() * 5 + 5;
   heart.style.animationDuration = duration + "s";
