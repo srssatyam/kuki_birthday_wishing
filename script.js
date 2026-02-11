@@ -1,4 +1,10 @@
+/* ========================= */
+/* ENTER SITE + MUSIC START */
+/* ========================= */
+
 function enterSite() {
+
+  // 💥 BIG RED CONFETTI BOOM
   const duration = 1500;
   const end = Date.now() + duration;
 
@@ -21,6 +27,7 @@ function enterSite() {
     }
   })();
 
+  // 🎵 MUSIC START WITH FADE
   let music = document.getElementById("bgMusic");
   music.volume = 0;
   music.play();
@@ -33,13 +40,18 @@ function enterSite() {
     }
   }, 200);
 
+  // SHOW MAIN CONTENT
   setTimeout(() => {
     document.getElementById("intro").style.display = "none";
     document.getElementById("mainContent").classList.remove("hidden");
   }, 1000);
 }
 
-/* MUSIC */
+
+/* ========================= */
+/* MUSIC TOGGLE */
+/* ========================= */
+
 function toggleMusic() {
   let music = document.getElementById("bgMusic");
   let btn = document.getElementById("musicBtn");
@@ -53,8 +65,20 @@ function toggleMusic() {
   }
 }
 
+
+/* ========================= */
 /* SLIDESHOW */
-let images = ["img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg","img6.jpg"];
+/* ========================= */
+
+let images = [
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg"
+];
+
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
@@ -78,10 +102,19 @@ function nextSlide() {
   updateSlide();
 }
 
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  updateSlide();
+}
+
 setInterval(nextSlide, 4000);
 updateSlide();
 
-/* SURPRISE LOGIC */
+
+/* ========================= */
+/* SURPRISE SECTION */
+/* ========================= */
+
 let surpriseBox = document.getElementById("surpriseBox");
 let surpriseImage = document.getElementById("surpriseImage");
 let surpriseQuote = document.getElementById("surpriseQuote");
@@ -101,11 +134,13 @@ let letterText =
   "FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
 
 let currentSurprise = 1;
-let unlockedSecond = false;
 
+
+/* TYPEWRITER EFFECT */
 function typeWriter(text) {
   loveLetter.innerText = "";
   let i = 0;
+
   function typing() {
     if (i < text.length) {
       loveLetter.innerText += text.charAt(i);
@@ -113,11 +148,15 @@ function typeWriter(text) {
       setTimeout(typing, 40);
     }
   }
+
   typing();
 }
 
+
+/* IMAGE FADE EFFECT */
 function fadeImage(newSrc, newText) {
   surpriseImage.style.opacity = 0;
+
   setTimeout(() => {
     surpriseImage.src = newSrc;
     surpriseQuote.innerText = newText;
@@ -125,29 +164,40 @@ function fadeImage(newSrc, newText) {
   }, 300);
 }
 
+
+/* FIRST SURPRISE */
 function showFirst() {
+
   surpriseBox.classList.remove("hidden");
+
   fadeImage(surprise1Image, surprise1Text);
   typeWriter(letterText);
 
-  btn1.classList.add("hidden");
-  btn2.classList.remove("hidden");
+  btn1.style.display = "none";
+  btn2.style.display = "block";
 
   currentSurprise = 1;
+
+  confetti({ particleCount: 200, spread: 120 });
 }
 
+
+/* SECOND SURPRISE */
 function showSecond() {
+
   fadeImage(surprise2Image, surprise2Text);
 
-  btn2.classList.add("hidden");
-  btn3.classList.remove("hidden");
+  btn2.style.display = "none";
+  btn3.style.display = "block";
 
   currentSurprise = 2;
-  unlockedSecond = true;
+
+  confetti({ particleCount: 300, spread: 150 });
 }
 
+
+/* PREVIOUS TOGGLE */
 function showPrevious() {
-  if (!unlockedSecond) return;
 
   if (currentSurprise === 1) {
     fadeImage(surprise2Image, surprise2Text);
