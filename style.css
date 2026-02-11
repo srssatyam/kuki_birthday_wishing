@@ -162,3 +162,74 @@ body {
     display: block;
   }
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAPPY BIRTHDAY ❤️</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+
+<!-- INTRO SCREEN -->
+<div id="intro">
+
+  <div class="intro-hearts">
+    <span class="i-heart small">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart large">♡</span>
+    <span class="i-heart small">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart large">♡</span>
+    <span class="i-heart">♡</span>
+    <span class="i-heart small">♡</span>
+  </div>
+
+  <h1>🎂❤️ HAPPY BIRTHDAY KUKI "RESHMI" ❤️🎂</h1>
+  <button onclick="enterSite()">TAP TO ENTER</button>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent" class="hidden">
+
+  <!-- FLOATING HEARTS ONLY FOR MAIN WINDOW -->
+  <div class="floating-hearts" id="floatingHearts"></div>
+
+  <h2 class="main-title">HAPPY BIRTHDAY KUKI</h2>
+
+  <div class="page">
+
+    <div class="left">
+      <img id="slideImage" src="img1.jpg">
+      <p id="quote"></p>
+    </div>
+
+    <div class="right">
+      <div id="surpriseBox" class="surprise-box hidden">
+        <img id="surpriseImage">
+        <p id="surpriseQuote"></p>
+        <p id="loveLetter"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <button id="btn1" class="action-btn first-btn" onclick="showFirst()">SURPRISE</button>
+  <button id="btn2" class="action-btn second-btn hidden" onclick="showSecond()">SURPRISE</button>
+  <button id="btn3" class="action-btn third-btn hidden" onclick="showPrevious()">PREVIOUS</button>
+
+  <button id="musicBtn" onclick="toggleMusic()">🔊 MUSIC</button>
+
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
