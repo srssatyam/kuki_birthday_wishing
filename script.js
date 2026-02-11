@@ -1,16 +1,15 @@
 /* ========================= */
-/* ENTER SITE + MUSIC START */
+/* ENTER SITE + CONFETTI + MUSIC */
 /* ========================= */
 
 function enterSite() {
 
-  // 💥 BIG RED CONFETTI BOOM
   const duration = 1500;
   const end = Date.now() + duration;
 
   (function frame() {
     confetti({
-      particleCount: 50,
+      particleCount: 60,
       spread: 180,
       startVelocity: 60,
       gravity: 0.8,
@@ -27,7 +26,6 @@ function enterSite() {
     }
   })();
 
-  // 🎵 MUSIC START WITH FADE
   let music = document.getElementById("bgMusic");
   music.volume = 0;
   music.play();
@@ -40,7 +38,6 @@ function enterSite() {
     }
   }, 200);
 
-  // SHOW MAIN CONTENT
   setTimeout(() => {
     document.getElementById("intro").style.display = "none";
     document.getElementById("mainContent").classList.remove("hidden");
@@ -80,12 +77,12 @@ let images = [
 ];
 
 let quotes = [
-  "YOU MAKE MY LIFE BEAUTIFUL ❤️",
+  "YOU ARE MY HAPPINESS 💖",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
   "EVERY MOMENT WITH YOU IS SPECIAL ✨",
-  "YOU ARE MY HAPPINESS 💖",
-  "WITH YOU LIFE IS A BLESSING 🎈",
-  "TODAY IS SPECIAL BECAUSE YOU WERE BORN ❤️"
+  "YOU MAKE MY WORLD BEAUTIFUL ❤️",
+  "WITH YOU LIFE IS A BLESSING 💕",
+  "TODAY IS SPECIAL BECAUSE YOU WERE BORN 🎉"
 ];
 
 let index = 0;
@@ -102,17 +99,12 @@ function nextSlide() {
   updateSlide();
 }
 
-function prevSlide() {
-  index = (index - 1 + images.length) % images.length;
-  updateSlide();
-}
-
 setInterval(nextSlide, 4000);
 updateSlide();
 
 
 /* ========================= */
-/* SURPRISE SECTION */
+/* SURPRISE SYSTEM */
 /* ========================= */
 
 let surpriseBox = document.getElementById("surpriseBox");
@@ -131,12 +123,10 @@ let surprise1Text = "YOU ARE MY GREATEST GIFT ❤️";
 let surprise2Text = "MY LIFE IS COMPLETE WITH YOU ✨";
 
 let letterText =
-  "FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
+"FROM THE MOMENT YOU CAME INTO MY LIFE,\nEVERYTHING BECAME BEAUTIFUL.\nI AM SO GRATEFUL FOR YOU ❤️";
 
 let currentSurprise = 1;
 
-
-/* TYPEWRITER EFFECT */
 function typeWriter(text) {
   loveLetter.innerText = "";
   let i = 0;
@@ -152,8 +142,6 @@ function typeWriter(text) {
   typing();
 }
 
-
-/* IMAGE FADE EFFECT */
 function fadeImage(newSrc, newText) {
   surpriseImage.style.opacity = 0;
 
@@ -164,10 +152,7 @@ function fadeImage(newSrc, newText) {
   }, 300);
 }
 
-
-/* FIRST SURPRISE */
 function showFirst() {
-
   surpriseBox.classList.remove("hidden");
 
   fadeImage(surprise1Image, surprise1Text);
@@ -177,28 +162,18 @@ function showFirst() {
   btn2.style.display = "block";
 
   currentSurprise = 1;
-
-  confetti({ particleCount: 200, spread: 120 });
 }
 
-
-/* SECOND SURPRISE */
 function showSecond() {
-
   fadeImage(surprise2Image, surprise2Text);
 
   btn2.style.display = "none";
   btn3.style.display = "block";
 
   currentSurprise = 2;
-
-  confetti({ particleCount: 300, spread: 150 });
 }
 
-
-/* PREVIOUS TOGGLE */
 function showPrevious() {
-
   if (currentSurprise === 1) {
     fadeImage(surprise2Image, surprise2Text);
     currentSurprise = 2;
@@ -207,3 +182,34 @@ function showPrevious() {
     currentSurprise = 1;
   }
 }
+
+
+/* ========================= */
+/* RANDOM BLUE ♡ BACKGROUND */
+/* ========================= */
+
+function generateBlueHearts() {
+  const container = document.getElementById("randomBlueHearts");
+
+  for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.classList.add("random-blue");
+    heart.innerText = "♡";
+
+    // random size
+    let size = Math.random() * 50 + 15;
+    heart.style.fontSize = size + "px";
+
+    // random position
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.top = Math.random() * 100 + "%";
+
+    // random gentle movement speed
+    heart.style.animationDuration = (Math.random() * 5 + 6) + "s";
+
+    container.appendChild(heart);
+  }
+}
+
+// Generate blue hearts when page loads
+generateBlueHearts();
