@@ -1,8 +1,12 @@
 function enterSite() {
+
   document.getElementById("intro").style.display = "none";
   document.getElementById("mainContent").classList.remove("hidden");
 
-  confetti({ particleCount: 200, spread: 120 });
+  confetti({
+    particleCount: 200,
+    spread: 120
+  });
 
   let music = document.getElementById("bgMusic");
   music.play();
@@ -22,12 +26,23 @@ function toggleMusic() {
   }
 }
 
-/* SLIDESHOW AUTO */
-let images = ["img1.jpg","img2.jpg","img3.jpg"];
+/* SLIDESHOW */
+let images = [
+  "img1.jpg",
+  "img2.jpg",
+  "img3.jpg",
+  "img4.jpg",
+  "img5.jpg",
+  "img6.jpg"
+];
+
 let quotes = [
   "YOU MAKE MY LIFE BEAUTIFUL ❤️",
   "YOUR SMILE IS MY FAVORITE GIFT 🎂",
-  "EVERY MOMENT WITH YOU IS SPECIAL ✨"
+  "EVERY MOMENT WITH YOU IS SPECIAL ✨",
+  "YOU ARE MY HAPPINESS 💖",
+  "WITH YOU LIFE IS A BLESSING 🎈",
+  "TODAY IS SPECIAL BECAUSE YOU WERE BORN ❤️"
 ];
 
 let index = 0;
@@ -46,7 +61,7 @@ updateSlide();
 
 /* SURPRISE */
 let surprise1Image = "surprise1.jpg";
-let surprise2Image = "surprise2.jpg";
+let surprise2Image = "surprise.jpg";
 
 function showFirst() {
   document.getElementById("surpriseBox").classList.remove("hidden");
@@ -61,7 +76,7 @@ function showFirst() {
 
 function showSecond() {
   document.getElementById("surpriseImage").src = surprise2Image;
-  document.getElementById("surpriseQuote").innerText = "MY LIFE IS COMPLETE WITH YOU ❤️";
+  document.getElementById("surpriseQuote").innerText = "MY LIFE IS COMPLETE WITH YOU ✨";
 
   document.getElementById("btn2").style.display = "none";
 
